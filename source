@@ -3,6 +3,10 @@ local G2L = {};
 -- StarterGui.ScreenGui
 G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui").RobloxGui);
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["1"]["IgnoreGuiInset"] = true;
+G2L["1"]["Name"] = "\0";
+G2L["1"]["DisplayOrder"] = 2e9;
+G2L["1"]["ResetOnSpawn"] = false;
 
 
 -- StarterGui.ScreenGui.CanvasGroup
@@ -235,7 +239,7 @@ G2L["1c"]["CornerRadius"] = UDim.new(0, 6);
 G2L["1d"] = Instance.new("ScrollingFrame", G2L["b"]);
 G2L["1d"]["Active"] = true;
 G2L["1d"]["BorderSizePixel"] = 0;
-G2L["1d"]["CanvasPosition"] = Vector2.new(0, 140);
+G2L["1d"]["CanvasPosition"] = Vector2.new(0, 0);
 G2L["1d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["1d"]["ScrollBarImageTransparency"] = 0.6;
 G2L["1d"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
@@ -1340,7 +1344,7 @@ G2L["98"]["Position"] = UDim2.new(0, 0, 0, 0);
 G2L["99"] = Instance.new("ScrollingFrame", G2L["95"]);
 G2L["99"]["Active"] = true;
 G2L["99"]["BorderSizePixel"] = 0;
-G2L["99"]["CanvasPosition"] = Vector2.new(0, 12.61334);
+G2L["99"]["CanvasPosition"] = Vector2.new(0, 0);
 G2L["99"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["99"]["ScrollBarImageTransparency"] = 0.5;
 G2L["99"]["Size"] = UDim2.new(1, 0, 0.85959, 0);
