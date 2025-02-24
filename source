@@ -1,12 +1,9 @@
 local G2L = {};
+local DRAG_GUI = true
 
 -- StarterGui.ScreenGui
 G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui").RobloxGui);
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
-G2L["1"]["IgnoreGuiInset"] = true;
-G2L["1"]["Name"] = "\0";
-G2L["1"]["DisplayOrder"] = 2e9;
-G2L["1"]["ResetOnSpawn"] = false;
 
 
 -- StarterGui.ScreenGui.CanvasGroup
@@ -1819,10 +1816,12 @@ local function Clloll()
 	local startPos = nil
 	local dragPos = nil
 	local function updateInput(input)
+		if not DRAG_GUI then return end
 		local Delta = input.Position - dragStart
 		local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
 		game:GetService("TweenService"):Create(Frame, TweenInfo.new(dragSpeed,easingStyle,easingDirection), {Position = Position}):Play()end
 	Frame.InputBegan:Connect(function(input)
+		if not DRAG_GUI then return end
 		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
 			dragToggle = true
 			dragStart = input.Position
@@ -1831,9 +1830,11 @@ local function Clloll()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragToggle = false;end;end)end;end)
 	Frame.InputChanged:Connect(function(input)
+		if not DRAG_GUI then return end
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 			dragInput = input;end;end)
 	UIS.InputChanged:Connect(function(input)
+		if not DRAG_GUI then return end
 		if input == dragInput and dragToggle then
 			updateInput(input)end;end)end
 task.spawn(Clloll);
@@ -1910,6 +1911,7 @@ local script = G2L["25"];
 			local moveConnection
 			moveConnection = game:GetService("UserInputService").InputChanged:Connect(function(moveInput)
 				if moveInput.UserInputType == Enum.UserInputType.MouseMovement then
+					DRAG_GUI = false
 					update(moveInput)
 				end
 			end)
@@ -1919,6 +1921,7 @@ local script = G2L["25"];
 				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
 					moveConnection:Disconnect()
 					releaseConnection:Disconnect()
+					DRAG_GUI = true
 				end
 			end)
 		end
@@ -1961,6 +1964,7 @@ local script = G2L["2c"];
 			local moveConnection
 			moveConnection = game:GetService("UserInputService").InputChanged:Connect(function(moveInput)
 				if moveInput.UserInputType == Enum.UserInputType.MouseMovement then
+					DRAG_GUI = false
 					update(moveInput)
 				end
 			end)
@@ -1970,6 +1974,7 @@ local script = G2L["2c"];
 				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
 					moveConnection:Disconnect()
 					releaseConnection:Disconnect()
+					DRAG_GUI = true
 				end
 			end)
 		end
@@ -2016,6 +2021,7 @@ local script = G2L["33"];
 			local moveConnection
 			moveConnection = game:GetService("UserInputService").InputChanged:Connect(function(moveInput)
 				if moveInput.UserInputType == Enum.UserInputType.MouseMovement then
+					DRAG_GUI = false
 					update(moveInput)
 				end
 			end)
@@ -2025,6 +2031,7 @@ local script = G2L["33"];
 				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
 					moveConnection:Disconnect()
 					releaseConnection:Disconnect()
+					DRAG_GUI = true
 				end
 			end)
 		end
@@ -2102,6 +2109,7 @@ local script = G2L["64"];
 			local moveConnection
 			moveConnection = game:GetService("UserInputService").InputChanged:Connect(function(moveInput)
 				if moveInput.UserInputType == Enum.UserInputType.MouseMovement then
+					DRAG_GUI = false
 					update(moveInput)
 				end
 			end)
@@ -2111,6 +2119,7 @@ local script = G2L["64"];
 				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
 					moveConnection:Disconnect()
 					releaseConnection:Disconnect()
+					DRAG_GUI = true
 				end
 			end)
 		end
@@ -2155,6 +2164,7 @@ local script = G2L["6b"];
 			local moveConnection
 			moveConnection = game:GetService("UserInputService").InputChanged:Connect(function(moveInput)
 				if moveInput.UserInputType == Enum.UserInputType.MouseMovement then
+					DRAG_GUI = false
 					update(moveInput)
 				end
 			end)
@@ -2164,6 +2174,7 @@ local script = G2L["6b"];
 				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
 					moveConnection:Disconnect()
 					releaseConnection:Disconnect()
+					DRAG_GUI = true
 				end
 			end)
 		end
@@ -2321,6 +2332,7 @@ local script = G2L["c1"];
 			local moveConnection
 			moveConnection = game:GetService("UserInputService").InputChanged:Connect(function(moveInput)
 				if moveInput.UserInputType == Enum.UserInputType.MouseMovement then
+					DRAG_GUI = false
 					update(moveInput)
 				end
 			end)
@@ -2330,6 +2342,7 @@ local script = G2L["c1"];
 				if endInput.UserInputType == Enum.UserInputType.MouseButton1 then
 					moveConnection:Disconnect()
 					releaseConnection:Disconnect()
+					DRAG_GUI = true
 				end
 			end)
 		end
