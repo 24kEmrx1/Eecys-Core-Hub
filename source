@@ -543,6 +543,28 @@ G2L["3c"]["Name"] = [[noclip]];
 G2L["3c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["3c"]["Text"] = [[Noclip]];
 G2L["3c"]["Position"] = UDim2.new(0.19961, 0, 0.88699, 0);
+local Clipon = true
+
+G2L["3c"].MouseButton1Click:Connect(function()
+	Clipon = not Clipon
+	G2L["3c"].Text = Clipon == true and "Clip" or Clipon == false and "Noclip"
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	if Clipon == true then
+		for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+			if v:IsA("BasePart") then
+				v.CanCollide = false
+			end
+		end
+	elseif Clipon == false then
+		for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+			if v:IsA("BasePart") then
+				v.CanCollide = true
+			end
+		end
+	end
+end)
 
 
 -- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.noclip.UICorner
@@ -577,8 +599,12 @@ G2L["40"]["Size"] = UDim2.new(0.16975, 0, 0.12083, 0);
 G2L["40"]["BackgroundTransparency"] = 0.6;
 G2L["40"]["Name"] = [[fly]];
 G2L["40"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["40"]["Text"] = [[Fly]];
+G2L["40"]["Text"] = [[Fly Gui]];
 G2L["40"]["Position"] = UDim2.new(0.43482, 0, 0.88699, 0);
+
+G2L["40"].MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+end)
 
 
 -- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.fly.UICorner
