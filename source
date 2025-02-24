@@ -2093,7 +2093,7 @@ task.spawn(C_57);
 local function C_5c()
 local script = G2L["5c"];
 	script.Parent.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet("https://pastebin.com/raw/xYGAtCBq"))("T.me/AvtorScripts")
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/24kEmrx1/FE-Verified/refs/heads/main/source"))()
 	end)
 end;
 task.spawn(C_5c);
