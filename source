@@ -2,11 +2,15 @@ local G2L = {};
 local DRAG_GUI = true
 
 -- StarterGui.ScreenGui
-G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
+G2L["1"] = Instance.new("ScreenGui", game:GetService("CoreGui").RobloxGui);
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 G2L["1"]["DisplayOrder"] = 2e9;
 G2L["1"]["ResetOnSpawn"] = false
 G2L["1"]["IgnoreGuiInset"] = true
+
+game["Run Service"]["RenderStepped"]:Connect(function()
+	G2L["1"]["Name"] = string.format("%s",game:GetService("HttpService"):GenerateGUID():gsub("{",""):gsub("}",""):gsub("-",""):sub(1,math.random(10,20)):upper())
+end)
 
 
 -- StarterGui.ScreenGui.CanvasGroup
@@ -1457,7 +1461,7 @@ G2L["a5"]["TextScaled"] = true;
 G2L["a5"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
 G2L["a5"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["a5"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["a5"]["Size"] = UDim2.new(0.85538, 0, 0.12309, 0);
+G2L["a5"]["Size"] = UDim2.new(0.85538, 0, 0.1, 0);
 G2L["a5"]["BackgroundTransparency"] = 0.6;
 G2L["a5"]["Name"] = [[CLICKTP]];
 G2L["a5"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -1498,7 +1502,7 @@ G2L["aa"]["TextScaled"] = true;
 G2L["aa"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
 G2L["aa"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["aa"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["aa"]["Size"] = UDim2.new(0.85538, 0, 0.12309, 0);
+G2L["aa"]["Size"] = UDim2.new(0.85538, 0, 0.1, 0);
 G2L["aa"]["BackgroundTransparency"] = 0.6;
 G2L["aa"]["Name"] = [[COOLREBORN]];
 G2L["aa"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -1539,7 +1543,7 @@ G2L["af"]["TextScaled"] = true;
 G2L["af"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
 G2L["af"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["af"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["af"]["Size"] = UDim2.new(0.85538, 0, 0.12309, 0);
+G2L["af"]["Size"] = UDim2.new(0.85538, 0, 0.1, 0);
 G2L["af"]["BackgroundTransparency"] = 0.6;
 G2L["af"]["Name"] = [[FLINGGUI]];
 G2L["af"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -1580,7 +1584,7 @@ G2L["b4"]["TextScaled"] = true;
 G2L["b4"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
 G2L["b4"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["b4"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["b4"]["Size"] = UDim2.new(0.85538, 0, 0.12309, 0);
+G2L["b4"]["Size"] = UDim2.new(0.85538, 0, 0.1, 0);
 G2L["b4"]["BackgroundTransparency"] = 0.6;
 G2L["b4"]["Name"] = [[WALLWALK]];
 G2L["b4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -1621,7 +1625,7 @@ G2L["b9"]["TextScaled"] = true;
 G2L["b9"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
 G2L["b9"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["b9"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["b9"]["Size"] = UDim2.new(0.85538, 0, 0.12309, 0);
+G2L["b9"]["Size"] = UDim2.new(0.85538, 0, 0.1, 0);
 G2L["b9"]["BackgroundTransparency"] = 0.6;
 G2L["b9"]["Name"] = [[TELEKINESIS]];
 G2L["b9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -1662,7 +1666,7 @@ G2L["be"]["TextScaled"] = true;
 G2L["be"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
 G2L["be"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["be"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
-G2L["be"]["Size"] = UDim2.new(0.85538, 0, 0.12309, 0);
+G2L["be"]["Size"] = UDim2.new(0.85538, 0, 0.1, 0);
 G2L["be"]["BackgroundTransparency"] = 0.6;
 G2L["be"]["Name"] = [[AK47]];
 G2L["be"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -1689,6 +1693,42 @@ G2L["c1"]["MaxTextSize"] = 15;
 
 -- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.ScrollingFrame.AK47.LocalScript
 G2L["c2"] = Instance.new("LocalScript", G2L["be"]);
+
+
+-- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.ScrollingFrame.DEX
+G2L["ddp"] = Instance.new("TextButton", G2L["a3"]);
+G2L["ddp"]["TextWrapped"] = true;
+G2L["ddp"]["BorderSizePixel"] = 0;
+G2L["ddp"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["ddp"]["AutoButtonColor"] = false;
+G2L["ddp"]["TextSize"] = 10;
+G2L["ddp"]["TextScaled"] = true;
+G2L["ddp"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
+G2L["ddp"]["FontFace"] = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["ddp"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+G2L["ddp"]["Size"] = UDim2.new(0.85538, 0, 0.1, 0);
+G2L["ddp"]["BackgroundTransparency"] = 0.6;
+G2L["ddp"]["Name"] = [[DEX]];
+G2L["ddp"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["ddp"]["Text"] = [[Dex]];
+G2L["ddp"]["Position"] = UDim2.new(0.5, 0, -0.11667, 0);
+
+
+-- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.ScrollingFrame.DEX.UICorner
+G2L["ppk"] = Instance.new("UICorner", G2L["ddp"]);
+G2L["ppk"]["CornerRadius"] = UDim.new(0, 6);
+
+
+-- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.ScrollingFrame.DEX.UIStroke
+G2L["llkm"] = Instance.new("UIStroke", G2L["ddp"]);
+G2L["llkm"]["Transparency"] = 0.6;
+G2L["llkm"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["llkm"]["Color"] = Color3.fromRGB(36, 36, 36);
+
+
+-- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.ScrollingFrame.DEX.UITextSizeConstraint
+G2L["mmk"] = Instance.new("UITextSizeConstraint", G2L["ddp"]);
+G2L["mmk"]["MaxTextSize"] = 15;
 
 
 
@@ -1937,6 +1977,7 @@ local script = G2L["6"];
 					game:GetService("TweenService"):Create(script["Parent"]["Parent"]["Parent"]["cvg"],TweenInfo.new(1),{GroupTransparency=0}):Play()
 					wait(2)
 					script.Parent.Parent:Destroy()
+					return
 				end
 				local tween = game:GetService("TweenService"):Create(script["Parent"],TweenInfo["new"](0.6,Enum["EasingStyle"]["Quint"],Enum["EasingDirection"]["InOut"]),{Rotation=script["Parent"]["Rotation"]+360})
 				tween:Play()
@@ -2384,6 +2425,12 @@ local script = G2L["9e"];
 	end)
 end;
 task.spawn(C_9e);
+local function C_10e()
+	G2L["ddp"].MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+	end)
+end;
+task.spawn(C_10e);
 -- StarterGui.ScreenGui.cvg.CanvasGroup.Frame.ScrollingFrame.Frame.Frame.Frame.ScrollingFrame.CLICKTP.LocalScript
 local function C_a9()
 local script = G2L["a9"];
@@ -2447,7 +2494,7 @@ local script = G2L["cb"];
 	local slider = script.Parent
 	local sliderFrame = slider.Parent
 	local progressBar = sliderFrame:FindFirstChild("ProgressBar")
-	local min = 0
+	local min = 0.1
 	local max = 500
 	local normal = workspace.Gravity
 	
@@ -2602,10 +2649,12 @@ local function C_dc()
 		local startPos = nil
 		local dragPos = nil
 		local function updateInput(input)
+			if not DRAG_GUI then return end
 			local Delta = input.Position - dragStart
 			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
 			game:GetService("TweenService"):Create(Frame, TweenInfo.new(dragSpeed,easingStyle,easingDirection), {Position = Position}):Play()end
 		Frame.InputBegan:Connect(function(input)
+			if not DRAG_GUI then return end
 			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
 				dragToggle = true
 				dragStart = input.Position
@@ -2614,9 +2663,11 @@ local function C_dc()
 					if input.UserInputState == Enum.UserInputState.End then
 						dragToggle = false;end;end)end;end)
 		Frame.InputChanged:Connect(function(input)
+			if not DRAG_GUI then return end
 			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 				dragInput = input;end;end)
 		UIS.InputChanged:Connect(function(input)
+			if not DRAG_GUI then return end
 			if input == dragInput and dragToggle then
 				updateInput(input)end;end)end
 	task.spawn(Clloll);
