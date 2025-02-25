@@ -2460,7 +2460,7 @@ task.spawn(C_ae);
 local function C_b3()
 local script = G2L["b3"];
 	script.Parent.MouseButton1Click:Connect(function()
-		loadstring(game:HttpGet('https://pastebin.com/raw/r97d7dS0', true))()
+		loadstring(game:HttpGet('https://pastebin.com/raw/7bMBv2ta', true))()
 	end)
 end;
 task.spawn(C_b3);
